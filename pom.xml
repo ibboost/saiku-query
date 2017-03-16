@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.saiku</groupId>
+	<groupId>org.ibboost.fork.saiku</groupId>
 	<artifactId>saiku-query</artifactId>
-	<version>0.4-SNAPSHOT</version>
+	<version>0.4</version>
 	<packaging>jar</packaging>
 
 	<name>query</name>
@@ -12,14 +12,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>deployment</id>
-			<name>Internal Releases</name>
-			<url>http://repo.meteorite.bi/content/repositories/alabs-release-local/</url>
+			<id>${release.id}</id>
+			<url>${release.url}</url>
 		</repository>
 		<snapshotRepository>
-			<id>deployment</id>
-			<name>Internal Snapshots</name>
-			<url>http://repo.meteorite.bi/content/repositories/alabs-snapshot-local/</url>
+			<id>${snapshot.id}</id>
+			<url>${snapshot.url}</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<properties>
@@ -75,16 +73,6 @@
 
 		</plugins>
 	</build>
-	<repositories>
-        <repository>
-            <id>pentaho-third-party</id>
-            <url>http://nexus.pentaho.org/content/repositories/proxied-3rd-party-releases/</url>
-        </repository>
-        <repository>
-            <id>pentaho-public-release</id>
-            <url>http://nexus.pentaho.org/content/repositories/pentaho-public-release-repos/</url>
-        </repository>
-	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.olap4j</groupId>
@@ -111,8 +99,8 @@
 		</dependency>
 		<dependency>
 			<groupId>pentaho</groupId>
-			<artifactId>mondrian</artifactId>
-			<version>3.9.0.2</version>
+	  		<artifactId>mondrian</artifactId>
+	  		<version>4.3.0.1-130</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.servlet</groupId>
@@ -143,10 +131,16 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.saiku</groupId>
-			<artifactId>saiku-query</artifactId>
-			<version>0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+            <id>skip.tests.by.default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
 </project>

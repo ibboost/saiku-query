@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import mondrian.olap.Annotation;
+import mondrian.olap.LocalizedProperty;
 import mondrian.olap.OlapElement;
 import mondrian.olap.Role;
 import mondrian.olap.Util;
@@ -82,7 +83,7 @@ public class MondrianOlap4jLevel
     }
 
     public Type getLevelType() {
-        if (level.isAll()) {
+        /*if (level.isAll()) {
             return Type.ALL;
         }
         switch (level.getLevelType()) {
@@ -111,7 +112,8 @@ public class MondrianOlap4jLevel
         case Null:
         default:
             throw Util.unexpected(level.getLevelType());
-        }
+        }*/
+    	return level.getLevelType();
     }
 
     public NamedList<Property> getProperties() {
@@ -184,13 +186,13 @@ public class MondrianOlap4jLevel
 
     public String getCaption() {
         return level.getLocalized(
-            OlapElement.LocalizedProperty.CAPTION,
+            LocalizedProperty.CAPTION,
             olap4jSchema.getLocale());
     }
 
     public String getDescription() {
         return level.getLocalized(
-            OlapElement.LocalizedProperty.DESCRIPTION,
+            LocalizedProperty.DESCRIPTION,
             olap4jSchema.getLocale());
     }
 
