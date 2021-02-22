@@ -12,12 +12,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>${release.id}</id>
-			<url>${release.url}</url>
+			<id>mysticeti-releases</id>
+			<url>https://repo.ibboost.com/repository/project-mysticeti-releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>${snapshot.id}</id>
-			<url>${snapshot.url}</url>
+			<id>mysticeti-snapshots</id>
+			<url>https://repo.ibboost.com/repository/project-mysticeti-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<properties>
