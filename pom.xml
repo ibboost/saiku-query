@@ -98,7 +98,7 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>pentaho</groupId>
+			<groupId>org.ibboost.dep.pentaho</groupId>
 	  		<artifactId>mondrian</artifactId>
 	  		<version>4.3.0.1-130</version>
 			<exclusions>
